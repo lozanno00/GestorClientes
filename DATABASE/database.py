@@ -15,3 +15,22 @@ class Clientes:
         for cliente in Clientes.lista:
             if cliente.dni == dni:
              return cliente 
+            
+    
+def crear(nombre, apellido, dni):
+    cliente = Cliente(nombre, apellido, dni)
+    Clientes.lista.append(cliente)
+    return cliente
+
+def modificar(nombre, apellido, dni):
+    for i, cliente in enumerate(Clientes.lista):
+        if cliente.dni == dni:
+            Clientes.lista[i].nombre = nombre
+            Clientes.lista[i].apellido = apellido
+            return Clientes.lista[i]
+        
+def eliminar(dni):
+    for i, cliente in enumerate(Clientes.lista):
+        if cliente.dni == dni:
+            cliente = Cliente.lista.pop(i)
+            return cliente 
